@@ -48,6 +48,7 @@ const Header = () => {
               className="rounded-lg p-2 text-text-secondary hover:bg-surface-hover transition-colors"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               <svg
                 className="h-6 w-6"

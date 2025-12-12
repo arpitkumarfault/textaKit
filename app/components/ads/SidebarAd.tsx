@@ -36,6 +36,7 @@ const SidebarAd = ({ slot, className = "" }: SidebarAdProps) => {
         data-ad-slot={adsenseConfig.adSlots[slot]}
         data-ad-format="vertical"
         data-full-width-responsive="true"
+        data-adtest={adsenseConfig.testMode ? "on" : undefined}
       />
     </div>
   );

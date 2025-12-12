@@ -179,6 +179,21 @@
     background-color: rgb(var(--color-accent));
   }
 
+  /* Theme-friendly overrides for legacy Tailwind gray/white classes used in tools pages */
+  .bg-gray-50 { background-color: rgb(var(--color-surface)) !important; }
+  .bg-gray-100 { background-color: rgb(var(--color-surface-hover)) !important; }
+  .bg-white { background-color: rgb(var(--color-surface)) !important; }
+  .text-gray-900 { color: rgb(var(--color-text-primary)) !important; }
+  .text-gray-800 { color: rgb(var(--color-text-primary)) !important; }
+  .text-gray-700 { color: rgb(var(--color-text-secondary)) !important; }
+  .text-gray-600 { color: rgb(var(--color-text-secondary)) !important; }
+  .text-gray-500 { color: rgb(var(--color-text-tertiary)) !important; }
+  .border-gray-200 { border-color: rgb(var(--color-border)) !important; }
+  .border-gray-300 { border-color: rgb(var(--color-border)) !important; }
+  .bg-blue-600 { background-color: rgb(var(--color-primary)) !important; }
+  .text-blue-600 { color: rgb(var(--color-primary)) !important; }
+  .border-blue-600 { border-color: rgb(var(--color-primary)) !important; }
+
   /* Border Colors */
   .border-border {
     border-color: rgb(var(--color-border));

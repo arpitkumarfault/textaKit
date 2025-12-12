@@ -1,6 +1,7 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getBlogPostBySlug, getFeaturedPosts, getRelatedPosts } from "../../data/blog-posts";
+import { getBlogPostBySlug, getRelatedPosts } from "../../data/blog-posts";
 import ArticleContent from "./_components/ArticleContent";
 import RelatedPosts from "./_components/RelatedPosts";
 import ShareButtons from "../../components/shared/ShareButtons";
@@ -9,6 +10,7 @@ import SidebarAd from "../../components/ads/SidebarAd";
 import { generateArticleSchema } from "../../lib/seo";
 import StructuredData from "../../components/seo/StructuredData";
 import { formatDate } from "../../lib/utils";
+import { siteConfig } from "../../config/site";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -32,6 +34,24 @@ export async function generateMetadata({
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
     keywords: post.tags.join(", "),
+    alternates: {
+      canonical: `${siteConfig.url}/blog/${slug}`,
+    },
+    openGraph: {
+      type: "article",
+      url: `${siteConfig.url}/blog/${slug}`,
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
+      images: post.image ? [{ url: post.image, alt: post.title }] : undefined,
+      siteName: siteConfig.name,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
+      images: post.image ? [post.image] : undefined,
+      creator: siteConfig.social.twitter,
+    },
   };
 }
 
@@ -78,10 +98,12 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   {post.author.avatar && (
-                    <img
+                    <Image
                       src={post.author.avatar}
                       alt={post.author.name}
-                      className="h-12 w-12 rounded-full border border-border"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 rounded-full border border-border object-cover"
                     />
                   )}
                   <div>
@@ -109,10 +131,12 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               {post.image && (
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="mb-8 w-full rounded-lg shadow-md"
+                  width={1200}
+                  height={675}
+                  className="mb-8 h-auto w-full rounded-lg shadow-md object-cover"
                 />
               )}
 
@@ -140,10 +164,12 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                   <h3 className="mb-3 text-xl font-bold text-text-primary">About the Author</h3>
                   <div className="flex gap-4">
                     {post.author.avatar && (
-                      <img
+                      <Image
                         src={post.author.avatar}
                         alt={post.author.name}
-                        className="h-16 w-16 rounded-full border border-border"
+                        width={64}
+                        height={64}
+                        className="h-16 w-16 rounded-full border border-border object-cover"
                       />
                     )}
                     <div>

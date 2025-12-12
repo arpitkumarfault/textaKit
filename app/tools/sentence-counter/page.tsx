@@ -37,17 +37,17 @@ export default function SentenceCounterPage() {
     <>
       <StructuredData data={structuredData} />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
           <Breadcrumb items={breadcrumbItems} />
 
           <div className="mt-6 grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <div className="mb-8">
-                <h1 className="mb-4 text-4xl font-bold text-gray-900">
+                <h1 className="mb-4 text-4xl font-bold text-primary">
                   Free Sentence Counter
                 </h1>
-                <p className="text-xl text-gray-600">
+                <p className="text-xl text-secondary">
                   Count sentences instantly and improve your writing clarity. Perfect for essays, articles, and readability scoring.
                 </p>
                 <ShareButtons url="/tools/sentence-counter" title="Free Sentence Counter Tool" />
@@ -60,28 +60,24 @@ export default function SentenceCounterPage() {
               </div>
 
               <section id="features" className="my-12">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">Key Features</h2>
+                <h2 className="mb-6 text-3xl font-bold text-primary">Key Features</h2>
                 <div className="grid gap-6 md:grid-cols-3">
-                  <div className="rounded-lg border bg-white p-6 text-center">
-                    <div className="text-4xl mb-2">⚡</div>
-                    <h3 className="font-semibold">Real-Time Counting</h3>
-                    <p className="text-sm text-gray-600 mt-2">See sentence count update as you type</p>
-                  </div>
-                  <div className="rounded-lg border bg-white p-6 text-center">
-                    <div className="text-4xl mb-2">📊</div>
-                    <h3 className="font-semibold">Accurate Detection</h3>
-                    <p className="text-sm text-gray-600 mt-2">Handles . ! ? and complex punctuation</p>
-                  </div>
-                  <div className="rounded-lg border bg-white p-6 text-center">
-                    <div className="text-4xl mb-2">📝</div>
-                    <h3 className="font-semibold">Readability Score</h3>
-                    <p className="text-sm text-gray-600 mt-2">Average sentence length calculated</p>
-                  </div>
+                  {[
+                    { icon: "⚡", title: "Real-Time Counting", desc: "See sentence count update as you type" },
+                    { icon: "📊", title: "Accurate Detection", desc: "Handles . ! ? and complex punctuation" },
+                    { icon: "📝", title: "Readability Score", desc: "Average sentence length calculated" },
+                  ].map((item) => (
+                    <div key={item.title} className="rounded-lg border border-border bg-surface p-6 text-center shadow-sm">
+                      <div className="text-4xl mb-2">{item.icon}</div>
+                      <h3 className="font-semibold text-primary">{item.title}</h3>
+                      <p className="text-sm text-secondary mt-2">{item.desc}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
 
               <section id="faq" className="my-12">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">FAQ</h2>
+                <h2 className="mb-6 text-3xl font-bold text-primary">FAQ</h2>
                 <div className="space-y-4">
                   <FAQ question="How does it detect sentences?" answer="It splits text by periods (.), exclamation marks (!), and question marks (?). Handles abbreviations and decimal numbers intelligently." />
                   <FAQ question="Does it work with quotes?" answer="Yes! Sentences inside quotation marks are counted correctly." />
@@ -104,11 +100,11 @@ export default function SentenceCounterPage() {
 }
 
 const FAQ = ({ question, answer }: { question: string; answer: string }) => (
-  <details className="group rounded-lg border bg-white p-4">
-    <summary className="flex cursor-pointer justify-between font-semibold list-none">
+  <details className="group rounded-lg border border-border bg-surface p-4 shadow-sm">
+    <summary className="flex cursor-pointer justify-between font-semibold list-none text-primary">
       {question}
       <span className="transition group-open:rotate-180">▼</span>
     </summary>
-    <p className="mt-3 text-gray-600">{answer}</p>
+    <p className="mt-3 text-secondary">{answer}</p>
   </details>
 );

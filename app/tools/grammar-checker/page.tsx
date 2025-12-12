@@ -68,7 +68,7 @@ const GrammarCheckerPage = () => {
     <>
       <StructuredData data={structuredData} />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
           <Breadcrumb items={breadcrumbItems} />
 
@@ -77,10 +77,10 @@ const GrammarCheckerPage = () => {
             <div className="lg:col-span-8">
               {/* Header */}
               <div className="mb-8">
-                <h1 className="mb-4 text-4xl font-bold text-gray-900">
+                <h1 className="mb-4 text-4xl font-bold text-primary">
                   Free Grammar Checker
                 </h1>
-                <p className="text-xl text-gray-600">
+                <p className="text-xl text-secondary">
                   Instantly check and correct grammar, spelling, and punctuation
                   errors in your text. Perfect for essays, emails, and
                   professional writing.
@@ -99,7 +99,7 @@ const GrammarCheckerPage = () => {
 
               {/* Features */}
               <section id="features" className="my-12">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">
+                <h2 className="mb-6 text-3xl font-bold text-primary">
                   Key Features
                 </h2>
                 <div className="grid gap-6 md:grid-cols-2">
@@ -128,7 +128,7 @@ const GrammarCheckerPage = () => {
 
               {/* How to Use */}
               <section id="how-to-use" className="my-12">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">
+                <h2 className="mb-6 text-3xl font-bold text-primary">
                   How to Use the Grammar Checker
                 </h2>
                 <div className="space-y-4">
@@ -141,10 +141,10 @@ const GrammarCheckerPage = () => {
 
               {/* Benefits */}
               <section id="benefits" className="my-12">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">
+                <h2 className="mb-6 text-3xl font-bold text-primary">
                   Benefits of Using Our Grammar Checker
                 </h2>
-                <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-6">
+                <div className="space-y-4 rounded-lg border border-border bg-surface p-6">
                   <BenefitItem title="Improve Writing Quality" description="Enhance the clarity and professionalism of your writing by eliminating errors." />
                   <BenefitItem title="Save Time" description="Quickly identify and fix errors instead of manual proofreading." />
                   <BenefitItem title="Learn as You Write" description="Understand your common mistakes and improve your grammar skills over time." />
@@ -168,7 +168,7 @@ const GrammarCheckerPage = () => {
 
               {/* Related Tools */}
               <section className="my-12">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">
+                <h2 className="mb-6 text-3xl font-bold text-primary">
                   Related Tools
                 </h2>
                 <div className="grid gap-4 md:grid-cols-3">
@@ -195,45 +195,45 @@ const GrammarCheckerPage = () => {
 
 // Helper Components (must be below the main component)
 const FeatureBox = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
-  <div className="rounded-lg border border-gray-200 bg-white p-6">
-    <div className="mb-2 text-2xl text-green-600">{icon}</div>
-    <h3 className="mb-2 text-xl font-semibold text-gray-900">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+  <div className="rounded-lg border border-border bg-surface p-6 shadow-sm transition-colors">
+    <div className="mb-2 text-2xl text-primary">{icon}</div>
+    <h3 className="mb-2 text-xl font-semibold text-primary">{title}</h3>
+    <p className="text-secondary">{description}</p>
   </div>
 );
 
 const StepInstruction = ({ number, title, description }: { number: number; title: string; description: string }) => (
-  <div className="flex gap-4 rounded-lg border border-gray-200 bg-white p-4">
-    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 text-white font-bold">
+  <div className="flex gap-4 rounded-lg border border-border bg-surface p-4 shadow-sm">
+    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-white font-bold">
       {number}
     </div>
     <div>
-      <h3 className="mb-1 font-semibold text-gray-900">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="mb-1 font-semibold text-primary">{title}</h3>
+      <p className="text-secondary">{description}</p>
     </div>
   </div>
 );
 
 const BenefitItem = ({ title, description }: { title: string; description: string }) => (
-  <div className="border-l-4 border-blue-600 pl-4">
-    <h3 className="mb-1 font-semibold text-gray-900">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+  <div className="border-l-4 border-primary/80 pl-4">
+    <h3 className="mb-1 font-semibold text-primary">{title}</h3>
+    <p className="text-secondary">{description}</p>
   </div>
 );
 
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => (
-  <details className="group rounded-lg border border-gray-200 bg-white p-4">
-    <summary className="cursor-pointer font-semibold text-gray-900 list-none flex justify-between items-center">
+  <details className="group rounded-lg border border-border bg-surface p-4 shadow-sm">
+    <summary className="cursor-pointer font-semibold text-primary list-none flex justify-between items-center">
       {question}
       <span className="transition group-open:rotate-180">▼</span>
     </summary>
-    <p className="mt-3 text-gray-600">{answer}</p>
+    <p className="mt-3 text-secondary">{answer}</p>
   </details>
 );
 
 const RelatedToolCard = ({ title, href }: { title: string; href: string }) => (
-  <a href={href} className="block rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-600 hover:shadow-md">
-    <h3 className="font-semibold text-gray-900">{title}</h3>
+  <a href={href} className="block rounded-lg border border-border bg-surface p-4 transition hover:border-primary/50 hover:shadow-md">
+    <h3 className="font-semibold text-primary">{title}</h3>
   </a>
 );
 

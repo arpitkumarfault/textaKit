@@ -27,6 +27,7 @@ const InArticleAd = () => {
         data-ad-slot={adsenseConfig.adSlots.inArticle}
         data-ad-format="fluid"
         data-ad-layout="in-article"
+        data-adtest={adsenseConfig.testMode ? "on" : undefined}
       />
     </div>
   );

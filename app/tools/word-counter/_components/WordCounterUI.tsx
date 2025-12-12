@@ -25,16 +25,20 @@ const WordCounterUI = () => {
     setText("");
   };
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(text);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      console.error("Copy failed", e);
+    }
   };
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+    <div className="rounded-xl border border-border bg-surface p-6 shadow-sm transition-colors">
       <div className="mb-4">
         <label
           htmlFor="word-counter-text"
-          className="mb-2 block font-semibold text-gray-900"
+          className="mb-2 block font-semibold text-primary"
         >
           Enter or Paste Your Text
         </label>
@@ -69,9 +73,9 @@ const WordCounterUI = () => {
 
       {/* Additional Info */}
       {text && (
-        <div className="mt-6 rounded-lg bg-blue-50 p-4">
-          <h3 className="mb-2 font-semibold text-blue-900">Quick Stats:</h3>
-          <ul className="space-y-1 text-sm text-blue-800">
+        <div className="mt-6 rounded-lg border border-border bg-surface-hover/80 p-4">
+          <h3 className="mb-2 font-semibold text-primary">Quick Stats:</h3>
+          <ul className="space-y-1 text-sm text-secondary">
             <li>• Average word length: {(stats.characters / (stats.words || 1)).toFixed(1)} characters</li>
             <li>• Average sentence length: {(stats.words / (stats.sentences || 1)).toFixed(1)} words</li>
             <li>• Average paragraph length: {(stats.sentences / (stats.paragraphs || 1)).toFixed(1)} sentences</li>
@@ -83,9 +87,9 @@ const WordCounterUI = () => {
 };
 
 const StatCard = ({ label, value }: { label: string; value: number | string }) => (
-  <div className="rounded-lg bg-gray-50 p-4 text-center">
-    <div className="text-3xl font-bold text-gray-900">{value}</div>
-    <div className="text-sm text-gray-600">{label}</div>
+  <div className="rounded-lg border border-border bg-surface-hover/60 p-4 text-center shadow-sm">
+    <div className="text-3xl font-bold text-primary">{value}</div>
+    <div className="text-sm text-secondary">{label}</div>
   </div>
 );
 

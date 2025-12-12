@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const TextComparePage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="mb-4 text-4xl font-bold">Text Compare</h1>
+        <h1 className="mb-4 text-4xl font-bold text-primary">Text Compare</h1>
         <ComparisonUI />
       </div>
     </div>

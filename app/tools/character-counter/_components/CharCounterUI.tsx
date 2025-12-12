@@ -10,7 +10,7 @@ const CharCounterUI = () => {
   const charNoSpaces = text.replace(/\s/g, "").length;
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6">
+    <div className="rounded-xl border border-border bg-surface p-6 shadow-sm transition-colors">
       <Textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -19,17 +19,36 @@ const CharCounterUI = () => {
       />
       
       <div className="grid grid-cols-2 gap-4">
-        <div className="rounded-lg bg-blue-50 p-4 text-center">
-          <div className="text-3xl font-bold text-blue-900">{charCount}</div>
-          <div className="text-sm text-blue-700">Characters (with spaces)</div>
-        </div>
-        <div className="rounded-lg bg-green-50 p-4 text-center">
-          <div className="text-3xl font-bold text-green-900">{charNoSpaces}</div>
-          <div className="text-sm text-green-700">Characters (no spaces)</div>
-        </div>
+        <StatCard
+          value={charCount}
+          label="Characters (with spaces)"
+          accentClass="from-primary/10 to-secondary/10 text-primary"
+        />
+        <StatCard
+          value={charNoSpaces}
+          label="Characters (no spaces)"
+          accentClass="from-success/15 to-primary/10 text-primary"
+        />
       </div>
     </div>
   );
 };
+
+const StatCard = ({
+  value,
+  label,
+  accentClass,
+}: {
+  value: number;
+  label: string;
+  accentClass: string;
+}) => (
+  <div className="rounded-lg border border-border bg-surface-hover/70 p-4 text-center shadow-sm">
+    <div className={`text-3xl font-bold bg-gradient-to-r ${accentClass} bg-clip-text text-transparent`}>
+      {value}
+    </div>
+    <div className="text-sm text-secondary">{label}</div>
+  </div>
+);
 
 export default CharCounterUI;

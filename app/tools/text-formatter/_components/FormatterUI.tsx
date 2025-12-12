@@ -23,17 +23,23 @@ const FormatterUI = () => {
   };
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6">
+    <div className="rounded-xl border border-border bg-surface p-6 shadow-sm transition-colors">
       <Textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter text to format..."
         className="mb-4 min-h-[300px]"
       />
-      <div className="flex gap-3">
-        <Button onClick={() => format("spaces")}>Remove Extra Spaces</Button>
-        <Button onClick={() => format("lines")}>Fix Line Breaks</Button>
-        <Button onClick={() => format("trim")}>Trim Lines</Button>
+      <div className="flex flex-wrap gap-3">
+        <Button onClick={() => format("spaces")} variant="primary">
+          Remove Extra Spaces
+        </Button>
+        <Button onClick={() => format("lines")} variant="outline">
+          Fix Line Breaks
+        </Button>
+        <Button onClick={() => format("trim")} variant="secondary">
+          Trim Lines
+        </Button>
       </div>
     </div>
   );

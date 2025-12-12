@@ -41,6 +41,7 @@ const AdBanner = ({
         data-ad-slot={adsenseConfig.adSlots[slot]}
         data-ad-format={format}
         data-full-width-responsive={responsive.toString()}
+        data-adtest={adsenseConfig.testMode ? "on" : undefined}
       />
     </div>
   );

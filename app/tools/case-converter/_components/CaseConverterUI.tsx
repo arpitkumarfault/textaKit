@@ -1,8 +1,9 @@
 "use client";
 
-import  { useState } from "react";
+import { useState } from "react";
 import { Button } from "../../../components/ui";
 import { Textarea } from "../../../components/ui";
+import CopyButton from "../../../components/shared/CopyButton";
 
 const CaseConverterUI = () => {
   const [text, setText] = useState("");
@@ -41,7 +42,8 @@ const CaseConverterUI = () => {
         className="mb-4 min-h-[300px]"
       />
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap items-center gap-3">
+        <CopyButton text={text} label="Copy text" successLabel="Copied!" />
         <Button onClick={() => convertCase("upper")} disabled={!text}>
           UPPERCASE
         </Button>

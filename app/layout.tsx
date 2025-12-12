@@ -10,6 +10,9 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -55,7 +58,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code-here", // ← replace this with real code if you have
+    ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
   },
 };
 
@@ -93,19 +96,23 @@ export default function RootLayout({
           />
         )}
 
-        {/* Google Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-          `}
-        </Script>
+        {/* Google Analytics - only load when ID is provided */}
+        {gaMeasurementId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
+          </>
+        )}
       </head>
       <body className={inter.className}>
         <ThemeProvider>

@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Button } from "../../../components/ui";
-import { Textarea } from "../../../components/ui";
 
 interface GrammarIssue {
   type: string;
@@ -19,6 +18,8 @@ const GrammarToolUI = () => {
   const [issues, setIssues] = useState<GrammarIssue[]>([]);
   const [isChecking, setIsChecking] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const highlightRef = useRef<HTMLDivElement | null>(null);
 
   const stats = {
     characters: text.length,
@@ -76,59 +77,79 @@ const GrammarToolUI = () => {
       suggestion +
       text.substring(issue.end);
     setText(newText);
-    
-    // Remove this issue from the list
-    setIssues(issues.filter((i) => i.start !== issue.start));
+
+    // Remove this issue from the list (keep others)
+    setIssues((prev) => prev.filter((i) => i !== issue));
   };
 
   const applyAllFixes = () => {
-    if (issues.length === 0) return;
+    const actionable = issues.filter((issue) => issue.suggestions?.length > 0);
+    if (actionable.length === 0) return;
 
-    let newText = text;
-    let offset = 0;
+    let updated = text;
+    let shift = 0;
 
-    // Sort issues by position (start from beginning)
-    const sortedIssues = [...issues].sort((a, b) => a.start - b.start);
+    actionable
+      .sort((a, b) => a.start - b.start)
+      .forEach((issue) => {
+        const replacement = issue.suggestions[0];
+        const start = issue.start + shift;
+        const end = issue.end + shift;
+        updated = updated.slice(0, start) + replacement + updated.slice(end);
+        shift += replacement.length - (issue.end - issue.start);
+      });
 
-    sortedIssues.forEach((issue) => {
-      if (issue.suggestions.length > 0) {
-        const suggestion = issue.suggestions[0];
-        const start = issue.start + offset;
-        const end = issue.end + offset;
+    setText(updated);
+    // Drop only issues that had actionable suggestions; keep others visible
+    const actionableSet = new Set(actionable);
+    setIssues((prev) => prev.filter((issue) => !actionableSet.has(issue)));
+  };
 
-        newText = newText.substring(0, start) + suggestion + newText.substring(end);
-        offset += suggestion.length - (issue.end - issue.start);
-      }
-    });
+  const highlightHtml = useMemo(() => renderHighlighted(text, issues), [text, issues]);
 
-    setText(newText);
-    setIssues([]);
+  const syncScroll = () => {
+    if (textareaRef.current && highlightRef.current) {
+      highlightRef.current.scrollTop = textareaRef.current.scrollTop;
+      highlightRef.current.scrollLeft = textareaRef.current.scrollLeft;
+    }
   };
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+    <div className="rounded-xl border border-border bg-surface p-6 shadow-sm transition-colors">
       {/* Text Input */}
       <div className="mb-4">
         <label
           htmlFor="grammar-text"
-          className="mb-2 block font-semibold text-gray-900"
+          className="mb-2 block font-semibold text-primary"
         >
           Enter or Paste Your Text
         </label>
-        <Textarea
-          id="grammar-text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Start typing or paste your text here to check grammar, spelling, and punctuation..."
-          className="min-h-[300px] w-full text-base"
-        />
-        <p className="mt-2 text-sm text-gray-500">
+        <div className="relative">
+          {/* Highlight layer */}
+          <div
+            ref={highlightRef}
+            className="pointer-events-none absolute inset-0 overflow-auto rounded-lg border border-border bg-surface px-3 py-3 font-mono text-base leading-relaxed whitespace-pre-wrap text-transparent"
+            dangerouslySetInnerHTML={{ __html: highlightHtml }}
+            aria-hidden="true"
+          />
+          {/* Editable layer */}
+          <textarea
+            id="grammar-text"
+            ref={textareaRef}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onScroll={syncScroll}
+            placeholder="Start typing or paste your text here to check grammar, spelling, and punctuation..."
+            className="relative z-10 w-full min-h-[300px] resize-y rounded-lg border border-border bg-transparent px-3 py-3 font-mono text-base leading-relaxed text-primary outline-none focus:ring-2 focus:ring-primary/40"
+          />
+        </div>
+        <p className="mt-2 text-sm text-secondary">
           {text.length} / 10,000 characters
         </p>
       </div>
 
       {/* Stats Bar */}
-      <div className="mb-4 grid grid-cols-2 gap-4 rounded-lg bg-gray-50 p-4 md:grid-cols-4">
+      <div className="mb-4 grid grid-cols-2 gap-4 rounded-lg bg-surface-hover/70 p-4 md:grid-cols-4">
         <StatItem label="Characters" value={stats.characters} />
         <StatItem label="Words" value={stats.words} />
         <StatItem label="Sentences" value={stats.sentences} />
@@ -144,7 +165,7 @@ const GrammarToolUI = () => {
         <Button
           onClick={handleCheck}
           disabled={!text.trim() || isChecking || text.length > 10000}
-          className="btn-primary"
+          variant="primary"
         >
           {isChecking ? (
             <>
@@ -155,30 +176,30 @@ const GrammarToolUI = () => {
             "Check Grammar"
           )}
         </Button>
-        <Button onClick={handleCopy} disabled={!text} className="btn-secondary">
+        <Button onClick={handleCopy} disabled={!text} variant="secondary">
           Copy Text
         </Button>
         {issues.length > 0 && (
-          <Button onClick={applyAllFixes} className="bg-green-600 text-white hover:bg-green-700">
+          <Button onClick={applyAllFixes} variant="success">
             Fix All ({issues.length})
           </Button>
         )}
-        <Button onClick={handleClear} disabled={!text} className="btn-outline">
+        <Button onClick={handleClear} disabled={!text} variant="outline">
           Clear
         </Button>
       </div>
 
       {/* Error Message */}
       {error && (
-        <div className="mb-6 rounded-lg bg-red-50 border border-red-200 p-4">
-          <p className="text-red-800">❌ {error}</p>
+        <div className="mb-6 rounded-lg border border-error/30 bg-error/10 p-4">
+          <p className="text-error-foreground">❌ {error}</p>
         </div>
       )}
 
       {/* Issues List */}
       {issues.length > 0 && (
         <div className="space-y-3">
-          <h3 className="font-semibold text-gray-900">
+          <h3 className="font-semibold text-primary">
             Found {issues.length} issue{issues.length !== 1 ? "s" : ""}
           </h3>
           {issues.map((issue, index) => (
@@ -193,20 +214,20 @@ const GrammarToolUI = () => {
 
       {/* Success Message */}
       {issues.length === 0 && text.trim() && !isChecking && !error && (
-        <div className="rounded-lg bg-green-50 p-6 text-center">
+        <div className="rounded-lg border border-success/20 bg-success/10 p-6 text-center">
           <p className="text-2xl">✅</p>
-          <p className="mt-2 text-lg font-semibold text-green-800">
+          <p className="mt-2 text-lg font-semibold text-primary">
             Great! No issues found in your text.
           </p>
-          <p className="text-green-700">Your writing looks perfect!</p>
+          <p className="text-secondary">Your writing looks perfect!</p>
         </div>
       )}
 
       {/* Help Text */}
       {!text && (
-        <div className="rounded-lg bg-blue-50 p-6">
-          <h4 className="mb-2 font-semibold text-blue-900">How to use:</h4>
-          <ol className="list-decimal list-inside space-y-1 text-blue-800">
+        <div className="rounded-lg border border-border bg-surface-hover/80 p-6">
+          <h4 className="mb-2 font-semibold text-primary">How to use:</h4>
+          <ol className="list-decimal list-inside space-y-1 text-secondary">
             <li>Paste or type your text in the box above</li>
             <li>Click "Check Grammar" to analyze your text</li>
             <li>Review suggestions and click to apply fixes</li>
@@ -229,10 +250,10 @@ const StatItem = ({
   error?: boolean;
 }) => (
   <div className="text-center">
-    <div className={`text-2xl font-bold ${error ? "text-red-600" : "text-gray-900"}`}>
+    <div className={`text-2xl font-bold ${error ? "text-error-foreground" : "text-primary"}`}>
       {value}
     </div>
-    <div className="text-sm text-gray-600">{label}</div>
+    <div className="text-sm text-secondary">{label}</div>
   </div>
 );
 
@@ -243,38 +264,38 @@ const IssueCard = ({
   issue: GrammarIssue;
   onApply: (suggestion: string) => void;
 }) => {
-  const typeColors: { [key: string]: string } = {
-    Spelling: "bg-red-100 text-red-800 border-red-200",
-    Grammar: "bg-orange-100 text-orange-800 border-orange-200",
-    Punctuation: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    Style: "bg-blue-100 text-blue-800 border-blue-200",
+  const typeClasses: { [key: string]: string } = {
+    Spelling: "border-error/40 bg-error/10 text-primary",
+    Grammar: "border-warning/40 bg-warning/10 text-primary",
+    Punctuation: "border-primary/30 bg-primary/10 text-primary",
+    Style: "border-secondary/30 bg-surface-hover text-primary",
   };
 
-  const bgColor = typeColors[issue.type] || "bg-gray-100 text-gray-800 border-gray-200";
+  const cardClass = typeClasses[issue.type] || "border-border bg-surface-hover text-primary";
 
   return (
-    <div className={`rounded-lg border p-4 ${bgColor}`}>
+    <div className={`rounded-lg border p-4 shadow-sm ${cardClass}`}>
       <div className="mb-2 flex items-start justify-between">
-        <span className="rounded bg-white px-2 py-1 text-xs font-semibold">
+        <span className="rounded bg-surface px-2 py-1 text-xs font-semibold">
           {issue.type}
         </span>
         {issue.severity && (
           <span className="text-xs opacity-75">{issue.severity}</span>
         )}
       </div>
-      <p className="mb-2 font-medium">{issue.message}</p>
-      <p className="mb-3 text-sm opacity-90">
+      <p className="mb-2 font-medium text-primary">{issue.message}</p>
+      <p className="mb-3 text-sm text-secondary">
         Context: "...{issue.context}..."
       </p>
       {issue.suggestions.length > 0 && (
         <div>
-          <p className="mb-2 text-sm font-semibold">Suggestions:</p>
+          <p className="mb-2 text-sm font-semibold text-primary">Suggestions:</p>
           <div className="flex flex-wrap gap-2">
             {issue.suggestions.map((suggestion, idx) => (
               <button
                 key={idx}
                 onClick={() => onApply(suggestion)}
-                className="rounded bg-white px-3 py-1.5 text-sm font-medium shadow-sm hover:shadow transition"
+                className="rounded border border-border bg-surface px-3 py-1.5 text-sm font-medium shadow-sm transition hover:border-primary/50 hover:shadow-md"
               >
                 {suggestion}
               </button>
@@ -285,5 +306,50 @@ const IssueCard = ({
     </div>
   );
 };
+
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderHighlighted(text: string, issues: GrammarIssue[]) {
+  if (!text) return "";
+  if (!issues || issues.length === 0) return escapeHtml(text);
+
+  const sorted = [...issues].sort((a, b) => a.start - b.start);
+  const parts: string[] = [];
+  let cursor = 0;
+
+  const typeClass: Record<string, string> = {
+    Spelling: "bg-error/30 text-primary",
+    Grammar: "bg-warning/30 text-primary",
+    Punctuation: "bg-primary/20 text-primary",
+    Style: "bg-secondary/20 text-primary",
+  };
+
+  sorted.forEach((issue) => {
+    const safeStart = Math.max(0, Math.min(text.length, issue.start));
+    const safeEnd = Math.max(safeStart, Math.min(text.length, issue.end));
+
+    if (cursor < safeStart) {
+      parts.push(escapeHtml(text.slice(cursor, safeStart)));
+    }
+
+    const highlight = escapeHtml(text.slice(safeStart, safeEnd));
+    const cls = typeClass[issue.type] || "bg-primary/15 text-primary";
+    parts.push(`<mark class="rounded-sm px-0.5 ${cls}">${highlight}</mark>`);
+    cursor = safeEnd;
+  });
+
+  if (cursor < text.length) {
+    parts.push(escapeHtml(text.slice(cursor)));
+  }
+
+  return parts.join("");
+}
 
 export default GrammarToolUI;

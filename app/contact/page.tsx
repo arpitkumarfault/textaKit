@@ -4,8 +4,8 @@ import { HiMail, HiLocationMarker } from "react-icons/hi";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-    title: "Contact Us - TextToolsHub",
-    description: "Get in touch with the TextToolsHub team. We'd love to hear your feedback, suggestions, or questions.",
+    title: "Contact Us - Textakit",
+    description: "Get in touch with the Textakit team. We'd love to hear your feedback, suggestions, or questions.",
 };
 
 export default function ContactPage() {

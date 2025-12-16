@@ -5,8 +5,8 @@ import { HiSparkles, HiCode, HiGlobeAlt, HiShieldCheck, HiLightningBolt, HiHeart
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-    title: "About Arpit Kumar Kanwar & TextToolsHub - Our Story",
-    description: "Discover the detailed journey behind TextToolsHub, a project by Arpit Kumar Kanwar to revolutionize free online text tools for students and creators.",
+    title: "About Arpit Kumar Kanwar & Textakit - Our Story",
+    description: "Discover the detailed journey behind Textakit, a project by Arpit Kumar Kanwar to revolutionize free online text tools for students and creators.",
 };
 
 export default function AboutPage() {
@@ -47,7 +47,7 @@ export default function AboutPage() {
                                     In the digital age, writing is the currency of communication. Whether you are a student submitting a thesis, a developer documenting code, or a content creator crafting the next viral post, text is the medium through which we share ideas. However, the tools we use to shape that text have often been fragmented, expensive, or cluttered with intrusive advertisements.
                                 </p>
                                 <p>
-                                    The story of <strong>TextToolsHub</strong> begins in <strong>November 2025</strong>. I am <strong>Arpit Kumar Kanwar</strong>, a software developer based in India. Like many of you, I found myself constantly juggling multiple browser tabs just to perform simple tasks. I needed one site to count characters for a tweet, another to check grammar for an email, and yet another to format JSON data or convert case styles.
+                                    The story of <strong>Textakit</strong> begins in <strong>November 2025</strong>. I am <strong>Arpit Kumar Kanwar</strong>, a software developer based in India. Like many of you, I found myself constantly juggling multiple browser tabs just to perform simple tasks. I needed one site to count characters for a tweet, another to check grammar for an email, and yet another to format JSON data or convert case styles.
                                 </p>
                                 <p>
                                     The turning point came during a late-night study session. I needed a reliable grammar checker, but every "free" tool I found required a signup, had a daily limit, or bombarded me with pop-ups. I realized that the internet lacked a truly unified, high-quality, and <strong>privacy-focused</strong> toolkit that was accessible to everyone, regardless of their budget.
@@ -71,7 +71,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="prose prose-lg dark:prose-invert text-text-secondary">
                                 <p>
-                                    Building TextToolsHub was not an overnight success; it was a journey of discipline and learning. As a solo developer, I wore every hat: product manager, UI/UX designer, backend engineer, and tester.
+                                    Building Textakit was not an overnight success; it was a journey of discipline and learning. As a solo developer, I wore every hat: product manager, UI/UX designer, backend engineer, and tester.
                                 </p>
                                 <p>
                                     Over the course of <strong>three months</strong>, from November 2025 to our official launch in <strong>January 2026</strong>, I dedicated my evenings and weekends to coding. I chose a modern technology stack not just for the sake of using new tools, but to ensure the best possible user experience:
@@ -103,7 +103,7 @@ export default function AboutPage() {
                                     Growing up in India, I witnessed firsthand how economic barriers can limit access to technology. A monthly subscription for a premium writing assistant might cost the equivalent of a week's groceries for some students. I believe that <strong>basic tools for education and productivity should be a fundamental right, not a luxury</strong>.
                                 </p>
                                 <p>
-                                    TextToolsHub is sustained by unobtrusive advertisements, specifically chosen to allow us to keep the servers running without ever charging the user. This model ensures that:
+                                    Textakit is sustained by unobtrusive advertisements, specifically chosen to allow us to keep the servers running without ever charging the user. This model ensures that:
                                 </p>
                                 <div className="grid sm:grid-cols-2 gap-4 my-6 not-prose">
                                     <div className="p-4 rounded-xl bg-surface border border-border">
@@ -131,7 +131,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="prose prose-lg dark:prose-invert text-text-secondary">
                                 <p>
-                                    In an era where data breaches are common, trusting an online tool with your personal or professional writing is difficult. That is why privacy is not an afterthought at TextToolsHub; it is the foundation of our architecture.
+                                    In an era where data breaches are common, trusting an online tool with your personal or professional writing is difficult. That is why privacy is not an afterthought at Textakit; it is the foundation of our architecture.
                                 </p>
                                 <p>
                                     Unlike many other services that send your text to a remote server for processing, <strong>99% of our tools operate entirely within your browser (Client-Side)</strong>. When you paste text into our Word Counter, Case Converter, or Text Reverser, that data never leaves your computer. It is processed by JavaScript right on your device.
@@ -156,7 +156,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="prose prose-lg dark:prose-invert text-text-secondary">
                                 <p>
-                                    We are just getting started. The version of TextToolsHub you see today is just the foundation. As a solo developer, I am constantly listening to user feedback (yes, I read every email sent to our contact address) and iterating on the product.
+                                    We are just getting started. The version of Textakit you see today is just the foundation. As a solo developer, I am constantly listening to user feedback (yes, I read every email sent to our contact address) and iterating on the product.
                                 </p>
                                 <p>
                                     Our roadmap for 2026 and beyond includes ambitious goals:
@@ -188,7 +188,7 @@ export default function AboutPage() {
                                     <h3 className="text-2xl font-bold text-text-primary">Arpit Kumar Kanwar</h3>
                                     <p className="text-primary font-medium mb-4">Founder & Lead Developer</p>
                                     <p className="text-text-secondary text-sm mb-6 leading-relaxed">
-                                        "I built TextToolsHub because I believe technology should empower people, not complicate their lives. Thank you for being part of this journey."
+                                        "I built Textakit because I believe technology should empower people, not complicate their lives. Thank you for being part of this journey."
                                     </p>
 
                                     <div className="w-full h-px bg-border mb-6"></div>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                         <div className="absolute top-0 left-0 w-full h-full bg-grid-white/5 [mask-image:linear-gradient(0deg,white,transparent)]"></div>
                         <h2 className="relative z-10 text-3xl font-bold text-text-primary mb-6">Ready to Optimize Your Workflow?</h2>
                         <p className="relative z-10 text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
-                            Join thousands of users who trust TextToolsHub for their daily tasks. No signup required—just click and create.
+                            Join thousands of users who trust Textakit for their daily tasks. No signup required—just click and create.
                         </p>
                         <Link
                             href="/tools"

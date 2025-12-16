@@ -1,185 +1,95 @@
 import { Metadata } from "next";
-import { siteConfig } from "../../config/site";
-
-export const dynamic = 'force-dynamic';
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "Terms of Service for TextToolsHub",
+  title: "Terms of Service - Textakit | Free Online Text Tools",
+  description: "Terms of Service for Textakit - free, no signup, no limits online text tools platform built by Arpit Kumar Kanwar.",
 };
 
-const TermsOfServicePage = () => {
+export default function TermsOfService() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <h1 className="mb-8 text-4xl font-bold text-gray-900">Terms of Service</h1>
-
-      <div className="prose prose-lg max-w-none">
-        <p className="text-gray-600">
-          <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
-        </p>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            1. Acceptance of Terms
-          </h2>
-          <p className="text-gray-700">
-            By accessing and using {siteConfig.name}, you accept and agree to be
-            bound by the terms and provision of this agreement. If you do not
-            agree to these terms, please do not use our services.
+    <div className="min-h-screen bg-background py-16">
+      <div className="container-custom max-w-5xl">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
+            Terms of Service
+          </h1>
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+            Simple, fair, and human-readable terms for using our completely free text tools.
           </p>
-        </section>
+          <p className="text-sm text-text-secondary mt-4">Effective: January 1, 2026</p>
+        </div>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            2. Use of Services
-          </h2>
-          <h3 className="mb-2 text-xl font-semibold text-gray-900">
-            2.1 Permitted Use
-          </h3>
-          <p className="text-gray-700">
-            You may use our text tools for lawful purposes only. You agree not to use the services:
-          </p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>In any way that violates applicable laws or regulations</li>
-            <li>To transmit harmful, offensive, or illegal content</li>
-            <li>To attempt to gain unauthorized access to our systems</li>
-            <li>To interfere with or disrupt the services</li>
-            <li>For any automated or systematic data collection without permission</li>
-          </ul>
+        <div className="prose prose-lg dark:prose-invert mx-auto space-y-12 text-text-secondary">
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">1. Acceptance of Terms</h2>
+            <p className="text-lg">
+              By using Textakit ("the Service"), you agree to these Terms of Service. If you do not agree, please do not use the Service.
+            </p>
+          </section>
 
-          <h3 className="mb-2 mt-4 text-xl font-semibold text-gray-900">
-            2.2 Service Availability
-          </h3>
-          <p className="text-gray-700">
-            We strive to maintain service availability but do not guarantee
-            uninterrupted access. We may suspend or discontinue services at any
-            time for maintenance or other reasons.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">2. Description of Service</h2>
+            <p className="text-lg">
+              Textakit is a free, ad-supported collection of online text manipulation tools including but not limited to word counters, grammar checkers, case converters, JSON formatters, and more. All tools are provided "as-is" with no warranty.
+            </p>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            3. Intellectual Property
-          </h2>
-          <p className="text-gray-700">
-            All content, features, and functionality on {siteConfig.name} are
-            owned by us and are protected by international copyright, trademark,
-            and other intellectual property laws.
-          </p>
-          <p className="mt-4 text-gray-700">
-            You retain all rights to the text content you process using our
-            tools. We do not claim ownership of your content.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">3. No Account Required</h2>
+            <p className="text-lg">
+              You do not need to create an account or provide any personal information to use Textakit. We love it that way.
+            </p>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            4. Disclaimer of Warranties
-          </h2>
-          <p className="text-gray-700">
-            Our services are provided "as is" and "as available" without any
-            warranties of any kind, either express or implied. We do not warrant that:
-          </p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>The services will meet your requirements</li>
-            <li>The services will be error-free or uninterrupted</li>
-            <li>Results obtained from the tools will be accurate or reliable</li>
-            <li>Any errors in the services will be corrected</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">4. Acceptable Use</h2>
+            <p className="text-lg">You agree not to:</p>
+            <ul className="list-disc pl-8 space-y-3 text-lg">
+              <li>Use the Service for any illegal or unauthorized purpose</li>
+              <li>Attempt to overload, attack, or disrupt the Service (DDOS, scraping, etc.)</li>
+              <li>Use automated tools to access the Service in a way that impacts other users</li>
+              <li>Remove or alter any copyright or attribution notices</li>
+            </ul>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            5. Limitation of Liability
-          </h2>
-          <p className="text-gray-700">
-            To the fullest extent permitted by law, {siteConfig.name} shall not
-            be liable for any indirect, incidental, special, consequential, or
-            punitive damages resulting from your use of or inability to use the
-            services.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">5. Intellectual Property</h2>
+            <p className="text-lg">
+              The Service and its original content (excluding your input text) are owned by Arpit Kumar Kanwar and protected by copyright and trademark laws.
+            </p>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            6. User Content
-          </h2>
-          <p className="text-gray-700">
-            You are solely responsible for the content you process through our
-            tools. You warrant that:
-          </p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>You own or have the necessary rights to the content</li>
-            <li>The content does not violate any third-party rights</li>
-            <li>The content is not illegal, harmful, or offensive</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">6. Limitation of Liability</h2>
+            <p className="text-lg">
+              Textakit is provided "as-is" without any warranties. We are not responsible for any loss of data, inaccuracies in grammar suggestions, or any consequences from using our tools in academic, legal, or professional settings.
+            </p>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            7. Third-Party Services
-          </h2>
-          <p className="text-gray-700">
-            Our website may contain links to third-party websites and services,
-            including Google AdSense advertisements. We are not responsible for
-            the content, privacy policies, or practices of third-party sites.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">7. Changes to Terms</h2>
+            <p className="text-lg">
+              We may update these terms occasionally. Continued use of the Service after changes constitutes acceptance of the new terms.
+            </p>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            8. Changes to Terms
-          </h2>
-          <p className="text-gray-700">
-            We reserve the right to modify these terms at any time. We will
-            notify users of significant changes by posting a notice on our
-            website. Continued use of the services after changes constitutes
-            acceptance of the new terms.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">8. Governing Law</h2>
+            <p className="text-lg">
+              These terms are governed by the laws of India. Any disputes will be resolved in the courts of Jaipur, Rajasthan.
+            </p>
+          </section>
 
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            9. Termination
-          </h2>
-          <p className="text-gray-700">
-            We may terminate or suspend your access to our services immediately,
-            without prior notice, for any reason, including breach of these terms.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            10. Governing Law
-          </h2>
-          <p className="text-gray-700">
-            These terms shall be governed by and construed in accordance with
-            applicable laws, without regard to conflict of law provisions.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            11. Contact Information
-          </h2>
-          <p className="text-gray-700">
-            If you have questions about these terms, please contact us at:
-          </p>
-          <ul className="mt-4 text-gray-700">
-            <li>
-              Email:{" "}
-              <a
-                href={`mailto:${siteConfig.author.email}`}
-                className="text-blue-600 hover:underline"
-              >
-                {siteConfig.author.email}
-              </a>
-            </li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">Contact</h2>
+            <p className="text-lg">
+              Arpit Kumar Kanwar<br />
+              Email: contact@texttoolshub.com
+            </p>
+          </section>
+        </div>
       </div>
     </div>
   );
-};
-
-export default TermsOfServicePage;
+}

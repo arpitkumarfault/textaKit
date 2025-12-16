@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "grammar tips",
   ],
   openGraph: {
-    title: "TextToolsHub Blog - Writing Tips & Guides",
+    title: "Textakit Blog - Writing Tips & Guides",
     description:
       "Expert advice on grammar, writing, and content creation",
     type: "website",

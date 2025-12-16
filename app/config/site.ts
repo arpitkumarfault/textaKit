@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "TextToolsHub",
-  title: "Free Online Text Tools - Grammar, Word Counter & More | TextToolsHub",
+  name: "Textakit",
+  title: "Free Online Text Tools - Grammar, Word Counter & More | Textakit",
   description: "Professional text editing tools including grammar checker, word counter, spell checker, and text formatter. 100% free, no registration required. Improve your writing instantly.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://texttoolshub.com",
   ogImage: "/images/og-image.jpg",
@@ -19,12 +19,12 @@ export const siteConfig = {
     "text analysis"
   ],
   author: {
-    name: "TextToolsHub Team",
+    name: "Textakit Team",
     email: "contact@texttoolshub.com",
     url: "https://texttoolshub.com",
   },
   creator: "@texttoolshub",
-  publisher: "TextToolsHub",
+  publisher: "Textakit",
   social: {
     twitter: "@texttoolshub",
     facebook: "texttoolshub",

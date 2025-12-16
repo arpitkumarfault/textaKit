@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: "TextToolsHub <onboarding@resend.dev>", // Use your verified domain
+      from: "Textakit <onboarding@resend.dev>", // Use your verified domain
       to: [process.env.CONTACT_EMAIL_TO || "contact@yourdomain.com"],
       subject: `Contact Form: ${subject}`,
       replyTo: email,

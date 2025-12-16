@@ -1,4 +1,4 @@
-export const APP_NAME = "TextToolsHub";
+export const APP_NAME = "Textakit";
 export const APP_DESCRIPTION = "Professional text editing tools for everyone";
 
 export const SOCIAL_LINKS = {
@@ -45,7 +45,7 @@ export const AUTO_SAVE_DELAY = 2000;
 export const DEBOUNCE_DELAY = 300;
 
 export const META_DEFAULTS = {
-  title: "Free Online Text Tools | TextToolsHub",
+  title: "Free Online Text Tools | Textakit",
   description:
     "Professional text editing tools including grammar checker, word counter, spell checker, and more. 100% free, no registration required.",
   keywords:

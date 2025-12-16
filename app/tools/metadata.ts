@@ -5,7 +5,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free Online Text Tools - 30+ Powerful Writing & Editing Tools",
   description:
-    "All-in-one free text tools hub: Grammar Checker, Word Counter, Spell Checker, Case Converter, Character Counter, Text Formatter, and 25+ more. No signup, 100% private, instant results.",
+    "All-in-one free textakit: Grammar Checker, Word Counter, Spell Checker, Case Converter, Character Counter, Text Formatter, and 25+ more. No signup, 100% private, instant results.",
   
   keywords: [
     "text tools",
@@ -22,22 +22,22 @@ export const metadata: Metadata = {
     "free online tools",
   ],
 
-  authors: [{ name: "TextToolsHub" }],
-  creator: "TextToolsHub",
-  publisher: "TextToolsHub",
+  authors: [{ name: "Textakit" }],
+  creator: "Textakit",
+  publisher: "Textakit",
 
   openGraph: {
     title: "Free Online Text Tools - Grammar, Word Count, Spell Check & More",
     description:
       "30+ professional text editing tools. Completely free, no registration, works instantly in your browser.",
     url: "https://yourdomain.com/tools",
-    siteName: "TextToolsHub",
+    siteName: "Textakit",
     images: [
       {
         url: "https://yourdomain.com/images/og-tools-page.jpg",
         width: 1200,
         height: 630,
-        alt: "TextToolsHub - Free Online Text Tools",
+        alt: "Textakit - Free Online Text Tools",
       },
     ],
     locale: "en_US",

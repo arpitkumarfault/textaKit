@@ -4,7 +4,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "why-online-text-tools-are-safer",
     title: "Why Online Text Tools Are Safer Than You Think (Client-Side Processing Explained)",
-    description: "Worried about pasting sensitive text online? Learn how client-side tools like TextToolsHub protect your privacy by processing data securely in your browser.",
+    description: "Worried about pasting sensitive text online? Learn how client-side tools like Textakit protect your privacy by processing data securely in your browser.",
     excerpt: "In an age of data breaches, is it safe to use online text editors? The answer lies in 'Client-Side Processing.' Discover how modern tools keep your data safe by never sending it to a server.",
     content: `
 # Why Online Text Tools Are Safer Than You Think
@@ -13,7 +13,7 @@ In the digital age, we constantly need to manipulate text—counting words for a
 
 If you are dealing with sensitive data like passwords, legal documents, or proprietary code, that fear is justified. Traditionally, web tools worked by sending your data to a remote server, processing it, and sending it back. highlighting a clear risk of interception or logging.
 
-However, a new generation of privacy-focused tools (including **TextToolsHub**) has emerged, built on a technology called **Client-Side Processing**.
+However, a new generation of privacy-focused tools (including **Textakit**) has emerged, built on a technology called **Client-Side Processing**.
 
 ## What is Client-Side Processing?
 
@@ -39,15 +39,15 @@ How can you tell if a tool is processing data locally?
 2.  **Works Offline**: Try loading the page, turning off your Wi-Fi, and using the tool. If it still works, it's client-side!
 3.  **Privacy Policy**: Honest developers will explicitly state that "data is processed in the browser."
 
-## Why TextToolsHub is Privacy-First
+## Why Textakit is Privacy-First
 
-At TextToolsHub, we prioritize your security. Our Word Counter, Case Converter, Text Reverser, and Line Sorter are built 100% on client-side JavaScript. This means we literally **cannot** see your data even if we wanted to. It never touches our servers.
+At Textakit, we prioritize your security. Our Word Counter, Case Converter, Text Reverser, and Line Sorter are built 100% on client-side JavaScript. This means we literally **cannot** see your data even if we wanted to. It never touches our servers.
 
 So next time you need to scrub a list of emails or format a confidential snippet, you can rest easy knowing that modern web technology is acting as your personal, private utility belt.
     `,
     author: {
       name: "Arpit Kumar Kanwar",
-      bio: "Founder of TextToolsHub & Privacy Advocate",
+      bio: "Founder of Textakit & Privacy Advocate",
       avatar: "/images/avatars/arpit.jpg"
     },
     publishedAt: "2026-01-10",
@@ -56,7 +56,7 @@ So next time you need to scrub a list of emails or format a confidential snippet
     featured: true,
     readingTime: 4,
     metaTitle: "Are Online Text Tools Safe? Client-Side Processing Explained",
-    metaDescription: "Learn why client-side text tools are secure. TextToolsHub processes your data in the browser, ensuring your privacy is never compromised.",
+    metaDescription: "Learn why client-side text tools are secure. Textakit processes your data in the browser, ensuring your privacy is never compromised.",
   },
   {
     slug: "10-common-grammar-mistakes",
@@ -119,7 +119,7 @@ This is a mishearing of the contraction.
 *   *Wrong:* I could of done that.
 *   *Right:* I could **have** done that (or "could've").
 
-Mastering these ten rules will instantly elevate the clarity and professionalism of your writing. For everything else, there's always the **TextToolsHub Grammar Checker**!
+Mastering these ten rules will instantly elevate the clarity and professionalism of your writing. For everything else, there's always the **Textakit Grammar Checker**!
     `,
     author: {
       name: "Sarah Johnson",
@@ -239,7 +239,7 @@ Use hash symbols (\`#\`) for headings.
 ## Intermediate Features
 
 ### Links and Images
-*   **Link**: \`[TextToolsHub](https://texttoolshub.com)\`
+*   **Link**: \`[Textakit](https://texttoolshub.com)\`
 *   **Image**: \`![Alt Text](/path/to/image.jpg)\`
 *   *Difference*: The image tag starts with an exclamation mark \`!\`.
 
@@ -438,7 +438,7 @@ When you paste an API response into a random website to format it, you are poten
 Many "free" online formatters store the data you paste for analytics or logging. This is a massive security risk.
 
 ## The Solution: Client-Side Formatting
-This is where **TextToolsHub** shines. Our JSON Formatter/Validator runs **locally**.
+This is where **Textakit** shines. Our JSON Formatter/Validator runs **locally**.
 *   We use your browser's built-in \`JSON.parse()\` and \`JSON.stringify()\` functions.
 *   Data is processed in 10-50 milliseconds.
 *   **Zero data transfer**. You can literally disconnect your internet and it will still work.
@@ -506,7 +506,7 @@ Save these snippets in a separate "Scrap File" if you can't bear to delete them 
 ## 5. Check Structure, Then Spelling
 Don't polish the brass on a sinking ship.
 *   **Macro Edit**: Fix the structure first. does paragraph 3 belong before paragraph 2? Is the introduction boring?
-*   **Micro Edit**: Once the flow works, *then* worry about commas, typos, and grammar. (Prom tip: Use the **TextToolsHub Grammar Checker** for this final polish!)
+*   **Micro Edit**: Once the flow works, *then* worry about commas, typos, and grammar. (Prom tip: Use the **Textakit Grammar Checker** for this final polish!)
 
 Self-editing is a muscle. The more you use it, the stronger your writing becomes.
     `,
@@ -584,7 +584,7 @@ Regex allows you to "capture" parts of the text and rearrange them.
 You don't need to code to use Regex.
 1.  **Google Docs/Word**: Advanced Find features often support wildcards.
 2.  **VS Code**: The standard for text editing.
-3.  **TextToolsHub**: Our upcoming **Regex Tester** tool will help you build and test these patterns visually!
+3.  **Textakit**: Our upcoming **Regex Tester** tool will help you build and test these patterns visually!
 
 Don't let the syntax scare you. Regex is strictly logical. Once it clicks, you'll wonder how you ever managed data without it.
     `,
@@ -699,7 +699,7 @@ Your Downloads folder is the junk drawer of your computer.
 
 ## Strategy 4: Centralize Your Text
 Stop writing in five different apps (Apple Notes, Notion, Google Docs, Notepad). Pick **one** "Source of Truth."
-*   If you need a quick scratchpad, use **TextToolsHub**. We are building ephemeral, privacy-first scratchpads that do not clutter your drive because they disappear when you close the tab (unless you choose to save).
+*   If you need a quick scratchpad, use **Textakit**. We are building ephemeral, privacy-first scratchpads that do not clutter your drive because they disappear when you close the tab (unless you choose to save).
 
 ## Conclusion
 A clean file system leads to a clear mind. You cannot produce your best work if you are constantly fighting your own operating system. Take 15 minutes today to organize your desktop—your future self will thank you.

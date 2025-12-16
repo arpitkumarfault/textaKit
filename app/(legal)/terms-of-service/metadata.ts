@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service - User Agreement",
   description:
-    "Read our terms of service to understand the rules and guidelines for using TextToolsHub.",
+    "Read our terms of service to understand the rules and guidelines for using Textakit.",
   keywords: ["terms of service", "user agreement", "terms", "conditions"],
   robots: {
     index: true,

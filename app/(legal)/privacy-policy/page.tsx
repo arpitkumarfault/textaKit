@@ -1,236 +1,107 @@
 import { Metadata } from "next";
-import { siteConfig } from "../../config/site";
-
-export const dynamic = 'force-dynamic';
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Privacy policy for TextToolsHub - Learn how we protect your data",
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: "Privacy Policy - Textakit | 100% Client-Side, No Data Collection",
+  description: "Textakit respects your privacy. 99% of tools run entirely in your browser. We do not store, track, or sell your text. Full privacy policy for our free online text tools platform.",
 };
 
-const PrivacyPolicyPage = () => {
+export default function PrivacyPolicy() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <h1 className="mb-8 text-4xl font-bold text-gray-900">Privacy Policy</h1>
-
-      <div className="prose prose-lg max-w-none">
-        <p className="text-gray-600">
-          <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
-        </p>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            1. Introduction
-          </h2>
-          <p className="text-gray-700">
-            Welcome to {siteConfig.name}. We respect your privacy and are
-            committed to protecting your personal data. This privacy policy
-            explains how we collect, use, and safeguard your information when
-            you visit our website.
+    <div className="min-h-screen bg-background py-16">
+      <div className="container-custom max-w-5xl">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
+            Privacy Policy
+          </h1>
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+            Your text never leaves your device. This is not a marketing claim — it's how Textakit was built from day one.
           </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            2. Information We Collect
-          </h2>
-          <h3 className="mb-2 text-xl font-semibold text-gray-900">
-            2.1 Information You Provide
-          </h3>
-          <p className="text-gray-700">
-            We collect information that you voluntarily provide to us:
+          <p className="text-sm text-text-secondary mt-4">
+            Last updated: July 15, 2026
           </p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>Contact form submissions (name, email, message)</li>
-            <li>Newsletter subscriptions (email address)</li>
-            <li>Comments on blog posts (name, email, comment content)</li>
-          </ul>
+        </div>
 
-          <h3 className="mb-2 mt-4 text-xl font-semibold text-gray-900">
-            2.2 Automatically Collected Information
-          </h3>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>IP address</li>
-            <li>Browser type and version</li>
-            <li>Device information</li>
-            <li>Pages visited and time spent</li>
-            <li>Referral source</li>
-          </ul>
+        <div className="prose prose-lg dark:prose-invert mx-auto space-y-12 text-text-secondary">
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">1. We Do Not Collect Your Text</h2>
+            <p className="text-lg leading-relaxed">
+              Unlike most online tools, <strong>99% of Textakit features operate entirely in your browser (client-side)</strong>. When you use our Word Counter, Grammar Checker, Case Converter, JSON Formatter, or any other tool — your text is processed using JavaScript directly on your device.
+            </p>
+            <p className="text-lg mt-4">
+              This means: <strong>We never see, store, log, or transmit your pasted text to any server.</strong>
+            </p>
+          </section>
 
-          <h3 className="mb-2 mt-4 text-xl font-semibold text-gray-900">
-            2.3 Text Processing
-          </h3>
-          <p className="text-gray-700">
-            <strong>Important:</strong> All text you enter into our tools is
-            processed locally in your browser. We do NOT store, transmit, or
-            have access to any text you process using our tools. Your content
-            remains private and never leaves your device.
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">2. What Minimal Data We Do Collect</h2>
+            <ul className="list-disc pl-8 space-y-4 text-lg">
+              <li><strong>Anonymous Usage Analytics</strong> via Plausible Analytics (privacy-first, cookie-less, GDPR-compliant)</li>
+              <li><strong>Page views and tool usage counts</strong> (e.g., "Word Counter used 10,000 times today") — no IP addresses stored</li>
+              <li><strong>Crash reports</strong> (only if you explicitly allow via browser prompt)</li>
+            </ul>
+            <p className="mt-6 text-lg">
+              We do <strong>NOT</strong> use Google Analytics, Meta Pixel, or any tracking that profiles users.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">3. Advertisements (AdSense)</h2>
+            <p className="text-lg leading-relaxed">
+              Textakit is completely free because of non-intrusive Google AdSense ads. Google may use cookies to serve ads based on your prior visits to this and other websites.
+            </p>
+            <p className="text-lg mt-4">
+              You can opt out of personalized advertising by visiting <Link href="https://adssettings.google.com" className="text-primary underline">Google Ads Settings</Link> or using browser extensions like uBlock Origin.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">4. Third-Party Services We Use</h2>
+            <div className="grid md:grid-cols-2 gap-6 not-prose">
+              <div className="p-6 rounded-xl bg-surface border border-border">
+                <h4 className="font-bold text-text-primary">Vercel</h4>
+                <p className="text-sm">Hosting & Edge Network (no logs of user content)</p>
+              </div>
+              <div className="p-6 rounded-xl bg-surface border border-border">
+                <h4 className="font-bold text-text-primary">Plausible Analytics</h4>
+                <p className="text-sm">Lightweight, privacy-first analytics</p>
+              </div>
+              <div className="p-6 rounded-xl bg-surface border border-border">
+                <h4 className="font-bold text-text-primary">Google AdSense</h4>
+                <p className="text-sm">Non-intrusive advertisements</p>
+              </div>
+              <div className="p-6 rounded-xl bg-surface border border-border">
+                <h4 className="font-bold text-text-primary">Cloudflare</h4>
+                <p className="text-sm">CDN & DDoS protection</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">5. Children's Privacy (COPPA Compliant)</h2>
+            <p className="text-lg">
+              Textakit is safe and suitable for users of all ages, including children under 13. We do not collect any personal information from anyone.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">6. Contact Us</h2>
+            <p className="text-lg">
+              If you have any questions about this Privacy Policy, please contact:
+            </p>
+            <p className="text-lg font-medium text-primary mt-4">
+              Arpit Kumar Kanwar<br />
+              Email: contact@texttoolshub.com
+            </p>
+          </section>
+        </div>
+
+        <div className="mt-20 text-center">
+          <p className="text-text-secondary">
+            Thank you for trusting Textakit with your writing, code, and ideas.
           </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            3. Cookies and Tracking
-          </h2>
-          <p className="text-gray-700">We use cookies for:</p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>
-              <strong>Essential Cookies:</strong> Required for website
-              functionality
-            </li>
-            <li>
-              <strong>Analytics Cookies:</strong> Google Analytics to understand
-              user behavior
-            </li>
-            <li>
-              <strong>Advertising Cookies:</strong> Google AdSense for
-              displaying relevant ads
-            </li>
-          </ul>
-          <p className="mt-4 text-gray-700">
-            You can control cookies through your browser settings.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            4. Third-Party Services
-          </h2>
-          <h3 className="mb-2 text-xl font-semibold text-gray-900">
-            4.1 Google AdSense
-          </h3>
-          <p className="text-gray-700">
-            We use Google AdSense to display advertisements. Google may use
-            cookies to show ads based on your visits to this and other websites.
-            You can opt out of personalized advertising by visiting{" "}
-            <a
-              href="https://www.google.com/settings/ads"
-              className="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Google Ads Settings
-            </a>
-            .
-          </p>
-
-          <h3 className="mb-2 mt-4 text-xl font-semibold text-gray-900">
-            4.2 Google Analytics
-          </h3>
-          <p className="text-gray-700">
-            We use Google Analytics to analyze website traffic. Google Analytics
-            uses cookies to collect anonymous information about user behavior.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            5. How We Use Your Information
-          </h2>
-          <p className="text-gray-700">We use collected information to:</p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>Provide and maintain our services</li>
-            <li>Respond to your inquiries and support requests</li>
-            <li>Send newsletters (with your consent)</li>
-            <li>Improve our website and user experience</li>
-            <li>Detect and prevent fraud or abuse</li>
-            <li>Comply with legal obligations</li>
-          </ul>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            6. Data Security
-          </h2>
-          <p className="text-gray-700">
-            We implement appropriate security measures to protect your personal
-            information. However, no method of transmission over the internet is
-            100% secure. We cannot guarantee absolute security.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            7. Your Rights
-          </h2>
-          <p className="text-gray-700">You have the right to:</p>
-          <ul className="list-disc pl-6 text-gray-700">
-            <li>Access your personal data</li>
-            <li>Correct inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Object to data processing</li>
-            <li>Withdraw consent</li>
-            <li>Data portability</li>
-          </ul>
-          <p className="mt-4 text-gray-700">
-            To exercise these rights, contact us at{" "}
-            <a
-              href={`mailto:${siteConfig.author.email}`}
-              className="text-blue-600 hover:underline"
-            >
-              {siteConfig.author.email}
-            </a>
-            .
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            8. Children's Privacy
-          </h2>
-          <p className="text-gray-700">
-            Our services are not directed to children under 13. We do not
-            knowingly collect information from children under 13. If you believe
-            we have collected such information, please contact us immediately.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            9. Changes to This Policy
-          </h2>
-          <p className="text-gray-700">
-            We may update this privacy policy from time to time. We will notify
-            you of significant changes by posting a notice on our website. Your
-            continued use of the website after changes constitutes acceptance.
-          </p>
-        </section>
-
-        <section className="my-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            10. Contact Us
-          </h2>
-          <p className="text-gray-700">
-            If you have questions about this privacy policy, contact us:
-          </p>
-          <ul className="mt-4 text-gray-700">
-            <li>
-              Email:{" "}
-              <a
-                href={`mailto:${siteConfig.author.email}`}
-                className="text-blue-600 hover:underline"
-              >
-                {siteConfig.author.email}
-              </a>
-            </li>
-            <li>
-              Website:{" "}
-              <a
-                href="/contact"
-                className="text-blue-600 hover:underline"
-              >
-                Contact Form
-              </a>
-            </li>
-          </ul>
-        </section>
+        </div>
       </div>
     </div>
   );
-};
-
-export default PrivacyPolicyPage;
+}

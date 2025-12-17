@@ -20,7 +20,7 @@ export const siteConfig = {
   ],
   author: {
     name: "Textakit Team",
-    email: "contact@texttoolshub.com",
+    email: "karpit757@gmail.com",
     url: "https://texttoolshub.com",
   },
   creator: "@texttoolshub",

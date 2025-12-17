@@ -126,7 +126,7 @@ Mastering these ten rules will instantly elevate the clarity and professionalism
       bio: "Senior Editor & Writing Coach",
       avatar: "/images/avatars/sarah.jpg"
     },
-    publishedAt: "2026-01-15",
+    publishedAt: "2026-01-1",
     category: "Grammar Guide",
     tags: ["grammar", "writing tips", "professional development"],
     featured: true,
@@ -186,7 +186,7 @@ Productivity is a habit. Start by implementing just one of these techniques tomo
       bio: "Productivity Consultant",
       avatar: "/images/avatars/michael.jpg"
     },
-    publishedAt: "2026-01-20",
+    publishedAt: "2026-01-2",
     category: "Productivity",
     tags: ["productivity", "writing", "workflow", "tips"],
     featured: false,
@@ -239,7 +239,7 @@ Use hash symbols (\`#\`) for headings.
 ## Intermediate Features
 
 ### Links and Images
-*   **Link**: \`[Textakit](https://texttoolshub.com)\`
+*   **Link**: \`[Textakit](https://textakit.com)\`
 *   **Image**: \`![Alt Text](/path/to/image.jpg)\`
 *   *Difference*: The image tag starts with an exclamation mark \`!\`.
 

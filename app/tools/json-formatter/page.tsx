@@ -85,7 +85,7 @@ const useCases = [
 
 const relatedTools = [
     { title: "Markdown to HTML", href: "/tools/markdown-to-html" },
-    { title: "Text Diff Checker", href: "/tools/text-diff" },
+    { title: "Text Diff Checker", href: "/tools/text-compare" },
 ];
 
 export default function JsonFormatterPage() {

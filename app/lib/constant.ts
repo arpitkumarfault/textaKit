@@ -8,7 +8,7 @@ export const SOCIAL_LINKS = {
   linkedin: "https://linkedin.com/company/texttoolshub",
 };
 
-export const CONTACT_EMAIL = "contact@texttoolshub.com";
+export const CONTACT_EMAIL = "karpit757@gmail.com";
 
 export const ROUTES = {
   home: "/",

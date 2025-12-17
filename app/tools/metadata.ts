@@ -1,4 +1,3 @@
-// src/app/tools/metadata.ts  (or directly in page.tsx)
 
 import { Metadata } from "next";
 

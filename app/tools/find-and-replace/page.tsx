@@ -206,7 +206,7 @@ export default function FindAndReplacePage() {
                                 <div className="grid gap-4 md:grid-cols-3">
                                     <RelatedToolLink title="Word Counter" href="/tools/word-counter" />
                                     <RelatedToolLink title="Text Case Converter" href="/tools/case-converter" />
-                                    <RelatedToolLink title="Remove Duplicate Lines" href="/tools/remove-duplicate-lines" />
+                                    <RelatedToolLink title="Remove Duplicate Lines" href="/tools/duplicate-line-remover" />
                                 </div>
                             </section>
                         </main>

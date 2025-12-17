@@ -85,7 +85,7 @@ export default function TermsOfService() {
             <h2 className="text-3xl font-bold text-text-primary mb-6">Contact</h2>
             <p className="text-lg">
               Arpit Kumar Kanwar<br />
-              Email: contact@texttoolshub.com
+              Email: karpit757@gmail.com
             </p>
           </section>
         </div>

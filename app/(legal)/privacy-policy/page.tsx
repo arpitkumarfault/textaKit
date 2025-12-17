@@ -17,9 +17,6 @@ export default function PrivacyPolicy() {
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             Your text never leaves your device. This is not a marketing claim — it's how Textakit was built from day one.
           </p>
-          <p className="text-sm text-text-secondary mt-4">
-            Last updated: July 15, 2026
-          </p>
         </div>
 
         <div className="prose prose-lg dark:prose-invert mx-auto space-y-12 text-text-secondary">
@@ -91,7 +88,7 @@ export default function PrivacyPolicy() {
             </p>
             <p className="text-lg font-medium text-primary mt-4">
               Arpit Kumar Kanwar<br />
-              Email: contact@texttoolshub.com
+              Email: karpit757@gmail.com
             </p>
           </section>
         </div>

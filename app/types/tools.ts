@@ -4,6 +4,8 @@ export interface Tool {
   description: string;
   longDescription: string;
   icon: string;
+   image?: string;        
+  ogImage?: string; 
   category: string;
   featured?: boolean;
   popularity?: number;        // ← This was missing → now added!

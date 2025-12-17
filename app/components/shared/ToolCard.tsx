@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Tool } from "../../types/tools";
 import { HiArrowRight, HiStar } from "react-icons/hi";
-import { Badge } from "../ui";
+import { Badge } from "../ui/Badge";
 
 interface ToolCardProps {
   tool: Tool;

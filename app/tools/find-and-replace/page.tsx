@@ -111,13 +111,13 @@ export default function FindAndReplacePage() {
                                 <ShareButtons url={TOOL_URL} title={TOOL_NAME} />
                             </header>
 
-                            <AdBanner slot="find-top" format="horizontal" className="mb-8" />
+                            <AdBanner slot="toolPageTop" format="horizontal" className="mb-8" />
 
                             <section id="tool" className="mb-12">
                                 <FindAndReplaceUI />
                             </section>
 
-                            <InArticleAd slot="find-middle" className="my-8" />
+                            <InArticleAd />
 
                             <section id="features" className="mb-12">
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -180,7 +180,7 @@ export default function FindAndReplacePage() {
                                 </div>
                             </section>
 
-                            <InArticleAd slot="find-bottom" className="my-8" />
+                            <InArticleAd />
 
                             <section id="faq" className="mb-12">
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -215,7 +215,7 @@ export default function FindAndReplacePage() {
                         <aside className="lg:col-span-4">
                             <div className="sticky top-4 space-y-6">
                                 <TableOfContents items={tocItems} />
-                                <SidebarAd slot="find-sidebar" />
+                                <SidebarAd slot="homepageSidebar" />
                             </div>
                         </aside>
                     </div>

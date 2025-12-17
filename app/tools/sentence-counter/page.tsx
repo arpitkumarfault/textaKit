@@ -66,8 +66,8 @@ export default function SentenceCounterPage() {
                     { icon: "⚡", title: "Real-Time Counting", desc: "See sentence count update as you type" },
                     { icon: "📊", title: "Accurate Detection", desc: "Handles . ! ? and complex punctuation" },
                     { icon: "📝", title: "Readability Score", desc: "Average sentence length calculated" },
-                  ].map((item) => (
-                    <div key={item.title} className="rounded-lg border border-border bg-surface p-6 text-center shadow-sm">
+                  ].map((item,index) => (
+                    <div key={index} className="rounded-lg border border-border bg-surface p-6 text-center shadow-sm">
                       <div className="text-4xl mb-2">{item.icon}</div>
                       <h3 className="font-semibold text-primary">{item.title}</h3>
                       <p className="text-sm text-secondary mt-2">{item.desc}</p>

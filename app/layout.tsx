@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css" assert { type: "css" };
-import { adsenseConfig } from "./config/adsense";
+import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { siteConfig } from "./config/site";
-import Script from "next/script";
 import { ThemeProvider } from "./providers/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
-const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -20,9 +15,12 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: siteConfig.keywords,
-  authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
-  creator: siteConfig.author.name,
+  keywords: Array.isArray(siteConfig.keywords) 
+    ? siteConfig.keywords.join(", ") 
+    : siteConfig.keywords,
+  authors: [{ name: siteConfig.author.name }],
+  creator: siteConfig.creator,
+  publisher: siteConfig.publisher,
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -57,9 +55,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
-  },
 };
 
 export default function RootLayout({
@@ -68,53 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Prevent Flash of Unstyled Content - Apply theme before React loads */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (!theme) {
-                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  }
-                  document.documentElement.classList.add(theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-        {/* Google AdSense */}
-        {adsenseConfig.enabled && (
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseConfig.publisherId}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        )}
-
-        {/* Google Analytics - only load when ID is provided */}
-        {gaMeasurementId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}');
-              `}
-            </Script>
-          </>
-        )}
-      </head>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />

@@ -124,7 +124,7 @@ export default function MarkdownToHtmlPage() {
                                 <ShareButtons url={TOOL_URL} title={TOOL_NAME} />
                             </header>
 
-                            <AdBanner slot="md-top" format="horizontal" className="mb-6" />
+                            <AdBanner slot="toolPageTop" format="horizontal" className="mb-6" />
 
                             {/* Tool */}
                             <section id="tool" className="mb-12">
@@ -241,7 +241,7 @@ export default function MarkdownToHtmlPage() {
                         <aside className="lg:col-span-4">
                             <div className="sticky top-4 space-y-6">
                                 <TableOfContents items={tocItems} />
-                                <SidebarAd slot="md-sidebar-1" />
+                                <SidebarAd slot="toolPageSidebar" />
                                 
                                 {/* Quick Tips */}
                                 <div className="p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
@@ -255,7 +255,7 @@ export default function MarkdownToHtmlPage() {
                                     </ul>
                                 </div>
                                 
-                                <SidebarAd slot="md-sidebar-2" />
+                                <SidebarAd slot="toolPageSidebar" />
                             </div>
                         </aside>
                     </div>

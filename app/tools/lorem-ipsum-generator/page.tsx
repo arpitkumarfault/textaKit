@@ -113,7 +113,7 @@ export default function LoremIpsumPage() {
                                 <ShareButtons url={TOOL_URL} title={TOOL_NAME} />
                             </header>
 
-                            <AdBanner slot="lorem-top" format="horizontal" className="mb-8" />
+                            <AdBanner slot="toolPageTop" format="horizontal" className="mb-8" />
 
                             <section id="tool" className="mb-12">
                                 <LoremIpsumUI />
@@ -198,7 +198,7 @@ export default function LoremIpsumPage() {
                         <aside className="lg:col-span-4">
                             <div className="sticky top-4 space-y-6">
                                 <TableOfContents items={tocItems} />
-                                <SidebarAd slot="lorem-sidebar" />
+                                <SidebarAd slot="toolPageSidebar" />
                             </div>
                         </aside>
                     </div>

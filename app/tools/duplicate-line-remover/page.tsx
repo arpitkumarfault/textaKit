@@ -111,13 +111,13 @@ export default function DuplicateLineRemoverPage() {
                                 <ShareButtons url={TOOL_URL} title={TOOL_NAME} />
                             </header>
 
-                            <AdBanner slot="dedup-top" format="horizontal" className="mb-8" />
+                            <AdBanner slot="homepageTop" format="horizontal" className="mb-8" />
 
                             <section id="tool" className="mb-12">
                                 <DuplicateLineRemoverUI />
                             </section>
 
-                            <InArticleAd slot="dedup-middle" className="my-8" />
+                            <InArticleAd />
 
                             <section id="features" className="mb-12">
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -169,7 +169,7 @@ export default function DuplicateLineRemoverPage() {
                                 </div>
                             </section>
 
-                            <InArticleAd slot="dedup-bottom" className="my-8" />
+                            <InArticleAd />
 
                             <section id="faq" className="mb-12">
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -204,7 +204,7 @@ export default function DuplicateLineRemoverPage() {
                         <aside className="lg:col-span-4">
                             <div className="sticky top-4 space-y-6">
                                 <TableOfContents items={tocItems} />
-                                <SidebarAd slot="dedup-sidebar" />
+                                <SidebarAd slot="homepageSidebar" />
                             </div>
                         </aside>
                     </div>

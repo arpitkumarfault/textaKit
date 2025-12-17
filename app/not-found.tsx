@@ -15,10 +15,10 @@ export default function NotFound() {
           Sorry, the page you're looking for doesn't exist.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link href="/">
+          <Link key="home" href="/">
             <Button variant="primary" size="lg">Go Home</Button>
           </Link>
-          <Link href="/tools">
+          <Link key="tools" href="/tools">
             <Button variant="outline" size="lg">Browse Tools</Button>
           </Link>
         </div>

@@ -111,9 +111,9 @@ apple
                             Sort Order
                         </label>
                         <div className="flex rounded-lg bg-gray-100 dark:bg-gray-700 p-1">
-                            {(["asc", "desc"] as const).map((order) => (
+                            {(["asc", "desc"] as const).map((order,index) => (
                                 <button
-                                    key={order}
+                                    key={index}
                                     onClick={() => setSortOrder(order)}
                                     className={`flex-1 rounded-md py-1.5 text-sm font-medium transition-all ${
                                         sortOrder === order
@@ -132,9 +132,9 @@ apple
                             Sort Method
                         </label>
                         <div className="flex rounded-lg bg-gray-100 dark:bg-gray-700 p-1">
-                            {(["alphabetical", "numerical", "length"] as const).map((type) => (
+                            {(["alphabetical", "numerical", "length"] as const).map((type,index) => (
                                 <button
-                                    key={type}
+                                    key={index}
                                     onClick={() => setSortType(type)}
                                     className={`flex-1 rounded-md py-1.5 text-sm font-medium transition-all capitalize ${
                                         sortType === type

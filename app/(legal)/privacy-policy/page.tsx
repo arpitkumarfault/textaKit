@@ -1,9 +1,10 @@
+
 import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata :Metadata= {
   title: "Privacy Policy - Textakit | 100% Client-Side, No Data Collection",
-  description: "Textakit respects your privacy. 99% of tools run entirely in your browser. We do not store, track, or sell your text. Full privacy policy for our free online text tools platform.",
+  description: "Textakit respects your privacy. 99% of tools run entirely in your browser. We do not store, track, or sell your text.",
 };
 
 export default function PrivacyPolicy() {
@@ -34,8 +35,8 @@ export default function PrivacyPolicy() {
             <h2 className="text-3xl font-bold text-text-primary mb-6">2. What Minimal Data We Do Collect</h2>
             <ul className="list-disc pl-8 space-y-4 text-lg">
               <li><strong>Anonymous Usage Analytics</strong> via Plausible Analytics (privacy-first, cookie-less, GDPR-compliant)</li>
-              <li><strong>Page views and tool usage counts</strong> (e.g., "Word Counter used 10,000 times today") — no IP addresses stored</li>
-              <li><strong>Crash reports</strong> (only if you explicitly allow via browser prompt)</li>
+              <li><strong>Page views and tool usage counts</strong> — no IP addresses stored</li>
+              <li><strong>Crash reports</strong> (only if you explicitly allow)</li>
             </ul>
             <p className="mt-6 text-lg">
               We do <strong>NOT</strong> use Google Analytics, Meta Pixel, or any tracking that profiles users.
@@ -45,58 +46,30 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-3xl font-bold text-text-primary mb-6">3. Advertisements (AdSense)</h2>
             <p className="text-lg leading-relaxed">
-              Textakit is completely free because of non-intrusive Google AdSense ads. Google may use cookies to serve ads based on your prior visits to this and other websites.
+              Textakit is free thanks to non-intrusive Google AdSense ads. Google may use cookies to serve ads.
             </p>
             <p className="text-lg mt-4">
-              You can opt out of personalized advertising by visiting <Link href="https://adssettings.google.com" className="text-primary underline">Google Ads Settings</Link> or using browser extensions like uBlock Origin.
+              Opt out at <Link href="https://adssettings.google.com" className="text-primary underline">Google Ads Settings</Link>.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-text-primary mb-6">4. Third-Party Services We Use</h2>
-            <div className="grid md:grid-cols-2 gap-6 not-prose">
-              <div className="p-6 rounded-xl bg-surface border border-border">
-                <h4 className="font-bold text-text-primary">Vercel</h4>
-                <p className="text-sm">Hosting & Edge Network (no logs of user content)</p>
-              </div>
-              <div className="p-6 rounded-xl bg-surface border border-border">
-                <h4 className="font-bold text-text-primary">Plausible Analytics</h4>
-                <p className="text-sm">Lightweight, privacy-first analytics</p>
-              </div>
-              <div className="p-6 rounded-xl bg-surface border border-border">
-                <h4 className="font-bold text-text-primary">Google AdSense</h4>
-                <p className="text-sm">Non-intrusive advertisements</p>
-              </div>
-              <div className="p-6 rounded-xl bg-surface border border-border">
-                <h4 className="font-bold text-text-primary">Cloudflare</h4>
-                <p className="text-sm">CDN & DDoS protection</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-3xl font-bold text-text-primary mb-6">5. Children's Privacy (COPPA Compliant)</h2>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">4. Children's Privacy</h2>
             <p className="text-lg">
-              Textakit is safe and suitable for users of all ages, including children under 13. We do not collect any personal information from anyone.
+              Textakit is safe for children under 13. We collect zero personal information.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-text-primary mb-6">6. Contact Us</h2>
+            <h2 className="text-3xl font-bold text-text-primary mb-6">5. Contact</h2>
             <p className="text-lg">
-              If you have any questions about this Privacy Policy, please contact:
-            </p>
-            <p className="text-lg font-medium text-primary mt-4">
-              Arpit Kumar Kanwar<br />
-              Email: karpit757@gmail.com
+              Questions? Email: <strong>karpit757@gmail.com</strong>
             </p>
           </section>
         </div>
 
-        <div className="mt-20 text-center">
-          <p className="text-text-secondary">
-            Thank you for trusting Textakit with your writing, code, and ideas.
-          </p>
+        <div className="mt-20 text-center text-text-secondary">
+          <p>Thank you for trusting Textakit with your words.</p>
         </div>
       </div>
     </div>

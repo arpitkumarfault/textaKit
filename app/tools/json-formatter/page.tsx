@@ -147,7 +147,7 @@ export default function JsonFormatterPage() {
                                 <ShareButtons url={TOOL_URL} title={TOOL_NAME} />
                             </header>
 
-                            <AdBanner slot="json-top" format="horizontal" className="mb-6" />
+                            <AdBanner slot="toolPageTop" format="horizontal" className="mb-6" />
 
                             {/* Tool */}
                             <section id="tool" className="mb-12">
@@ -351,7 +351,7 @@ export default function JsonFormatterPage() {
                         <aside className="lg:col-span-4">
                             <div className="sticky top-4 space-y-6">
                                 <TableOfContents items={tocItems} />
-                                <SidebarAd slot="json-sidebar-1" />
+                                <SidebarAd slot="homepageSidebar" />
 
                                 {/* Quick Tips */}
                                 <div className="p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
@@ -388,7 +388,7 @@ export default function JsonFormatterPage() {
                                     </ul>
                                 </div>
 
-                                <SidebarAd slot="json-sidebar-2" />
+                                <SidebarAd slot="homepageSidebar" />
                             </div>
                         </aside>
                     </div>

@@ -239,9 +239,9 @@ export default function AlternatingCaseUI() {
             "when you realize it's monday tomorrow",
             "me explaining to my mom",
             "nobody: absolutely nobody:",
-          ].map((template) => (
+          ].map((template,index) => (
             <Button
-              key={template}
+              key={index}
               variant="ghost"
               className="justify-start text-left h-auto py-3 px-4 text-sm hover:bg-primary/10 transition-colors font-medium"
               onClick={() => setInput(template)}

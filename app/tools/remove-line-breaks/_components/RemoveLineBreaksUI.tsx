@@ -356,9 +356,9 @@ export default function RemoveLineBreaksUI() {
               label: "Poem to Prose",
               text: "Roses are red,\nViolets are blue,\nSugar is sweet,\nAnd so are you.",
             },
-          ].map((example) => (
+          ].map((example,index) => (
             <Button
-              key={example.label}
+              key={index}
               variant="ghost"
               className="justify-start text-left h-auto py-3 px-4 text-sm hover:bg-primary/10 font-mono"
               onClick={() => setInput(example.text)}

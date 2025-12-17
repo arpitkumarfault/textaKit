@@ -39,8 +39,8 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
       <div className="container mx-auto px-4 py-12">
         {posts.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+            {posts.map((post,index) => (
+              <BlogCard key={index} post={post} />
             ))}
           </div>
         ) : (

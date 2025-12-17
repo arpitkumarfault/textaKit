@@ -1,75 +1,66 @@
+// app/providers/ThemeProvider.tsx
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Theme = "light" | "dark";
 
 interface ThemeContextType {
-    theme: Theme;
-    toggleTheme: () => void;
-    setTheme: (theme: Theme) => void;
+  theme: Theme;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [theme, setThemeState] = useState<Theme>("light");
-    const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-    // Initialize theme from localStorage or system preference
-    useEffect(() => {
-        setMounted(true);
+  // THIS IS THE MAGIC FIX — prevents any SSR crash on static pages
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-        if (typeof window === 'undefined') return;
-
-        const savedTheme = localStorage.getItem("theme") as Theme | null;
-
-        if (savedTheme) {
-            setThemeState(savedTheme);
-        } else {
-            // Check system preference
-            if (window.matchMedia) {
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                setThemeState(prefersDark ? "dark" : "light");
-            }
-        }
-    }, []);
-
-    // Apply theme to document
-    useEffect(() => {
-        if (!mounted || typeof window === 'undefined') return;
-
-        const root = document.documentElement;
-        root.classList.remove("light", "dark");
-        root.classList.add(theme);
-
-        try {
-            localStorage.setItem("theme", theme);
-        } catch (e) {
-            console.warn('Failed to save theme:', e);
-        }
-    }, [theme, mounted]);
-
-    const toggleTheme = () => {
-        setThemeState((prev) => (prev === "light" ? "dark" : "light"));
-    };
-
-    const setTheme = (newTheme: Theme) => {
-        setThemeState(newTheme);
-    };
-
-    // Always provide context, even before mounting
+  // If not mounted (i.e., during SSR/prerender), render children directly without theme
+  if (!mounted) {
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-            {children}
-        </ThemeContext.Provider>
+      <div style={{ visibility: "hidden" }}>
+        {children}
+      </div>
     );
+  }
+
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme") as Theme | null;
+    if (saved) {
+      setTheme(saved);
+      document.documentElement.classList.add(saved);
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.add("light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
-export function useTheme() {
-    const context = useContext(ThemeContext);
-    if (context === undefined) {
-        throw new Error("useTheme must be used within a ThemeProvider");
-    }
-    return context;
-}
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error("useTheme must be used within ThemeProvider");
+  return context;
+};

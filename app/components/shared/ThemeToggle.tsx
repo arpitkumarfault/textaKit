@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useTheme } from "../../providers/ThemeProvider";
 import { HiSun, HiMoon } from "react-icons/hi2";

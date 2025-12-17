@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { adsenseConfig } from "../../config/adsense";
 
-const InArticleAd = () => {
+const InArticleAd: React.FC<{ slot?: string; className?: string }> = ({ slot, className }) => {
   useEffect(() => {
     if (adsenseConfig.enabled) {
       try {

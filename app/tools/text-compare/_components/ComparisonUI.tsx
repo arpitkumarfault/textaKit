@@ -96,7 +96,7 @@ const ComparisonUI = () => {
     const rightLines = text2.split("\n");
     const maxLines = Math.max(leftLines.length, rightLines.length);
 
-    const result: DiffLine[] = [];
+    const result: any = [];
 
     for (let i = 0; i < maxLines; i++) {
       const leftLine = leftLines[i] ?? "";
@@ -220,9 +220,9 @@ const ComparisonUI = () => {
         <div className="overflow-hidden rounded-lg border border-border bg-surface-hover/50">
           <div className="max-h-96 overflow-y-auto md:max-h-[600px]">
             <div className="space-y-3 p-4">
-              {diffLines.map((line) => (
+              {diffLines.map((line,index) => (
                 <div
-                  key={line.lineNumber}
+                  key={index}
                   className="grid gap-4 rounded-lg border border-border bg-surface p-4 shadow-sm sm:grid-cols-2"
                 >
                   {/* Left Side */}

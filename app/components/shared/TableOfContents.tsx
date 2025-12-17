@@ -46,8 +46,8 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
       <h3 className="mb-4 font-semibold text-gray-900">Table of Contents</h3>
       <nav>
         <ul className="space-y-2">
-          {items.map((item) => (
-            <li key={item.id}>
+          {items.map((item, index) => (
+            <li key={index}>
               <button
                 onClick={() => scrollToSection(item.id)}
                 className={`text-left text-sm transition hover:text-blue-600 ${

@@ -16,7 +16,6 @@ import { Button } from "../../../components/ui";
 import { Textarea } from "../../../components/ui";
 import Badge from "../../../components/shared/Badge";
 import { ToggleGroup,ToggleGroupItem } from "../../../components/ui/ToggleGroup";
-
 type NumberFormat = "decimal" | "padded" | "roman" | "alpha" | "bullet";
 type Separator = "dot" | "colon" | "pipe" | "bracket" | "parenthesis" | "tab" | "space";
 
@@ -448,9 +447,9 @@ export default function AddLineNumbersUI() {
               label: "Meeting Agenda",
               text: "Introduction\nProject Updates\nBudget Review\nQ&A Session\nAction Items",
             },
-          ].map((example) => (
+          ].map((example,index) => (
             <Button
-              key={example.label}
+              key={index}
               variant="ghost"
               className="justify-start text-left h-auto py-3 px-4 text-sm hover:bg-primary/10 font-mono"
               onClick={() => setInput(example.text)}

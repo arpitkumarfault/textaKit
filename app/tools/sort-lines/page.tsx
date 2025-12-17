@@ -112,7 +112,7 @@ export default function SortLinesPage() {
                                 <ShareButtons url={TOOL_URL} title={TOOL_NAME} />
                             </header>
 
-                            <AdBanner slot="sort-top" format="horizontal" className="mb-8" />
+                            <AdBanner slot="toolPageTop" format="horizontal" className="mb-8" />
 
                             <section id="tool" className="mb-12">
                                 <SortLinesUI />
@@ -205,7 +205,7 @@ export default function SortLinesPage() {
                         <aside className="lg:col-span-4">
                             <div className="sticky top-4 space-y-6">
                                 <TableOfContents items={tocItems} />
-                                <SidebarAd slot="sort-sidebar" />
+                                <SidebarAd slot="toolPageSidebar" />
                             </div>
                         </aside>
                     </div>

@@ -196,9 +196,9 @@ export default function RemoveExtraSpacesUI() {
             "Copied   from   PDF    with    weird     line     breaks\n\n\n\nand    extra    spaces",
             "Hello        world!      This     is      a      test.       Yes!!!",
             "Remove   all   extra   spaces   from   this   text   please   thanks",
-          ].map((text) => (
+          ].map((text,index) => (
             <Button
-              key={text}
+              key={index}
               variant="ghost"
               className="justify-start text-left h-auto py-3 px-4 text-sm hover:bg-primary/10 font-mono"
               onClick={() => setInput(text)}

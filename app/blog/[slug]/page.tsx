@@ -8,6 +8,7 @@ import ShareButtons from "../../components/shared/ShareButtons";
 import InArticleAd from "../../components/ads/InArticleAd";
 import SidebarAd from "../../components/ads/SidebarAd";
 import { generateArticleSchema } from "../../lib/seo";
+
 import StructuredData from "../../components/seo/StructuredData";
 import { formatDate } from "../../lib/utils";
 import { siteConfig } from "../../config/site";

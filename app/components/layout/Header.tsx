@@ -8,6 +8,8 @@ import MobileMenu from "./MobileMenu";
 import ThemeToggle from "../shared/ThemeToggle";
 import { motion } from "framer-motion";
 import { HiSparkles } from "react-icons/hi2";
+import Image from "next/image";
+import icon from '../../../public/images/logo/icon.png'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,17 +24,15 @@ const Header = () => {
       <nav className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <motion.div
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary via-secondary to-accent shadow-lg"
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <HiSparkles className="h-6 w-6 text-white" />
-            </motion.div>
-            <span className="text-xl font-bold gradient-text hidden sm:block">
-              {siteConfig.name}
-            </span>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <Image 
+              src={icon} 
+              alt="TextaKit Icon" 
+              width={158} 
+              height={48}
+              className="transition-transform group-hover:scale-110"
+            />
+           
           </Link>
 
           {/* Desktop Navigation */}

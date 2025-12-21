@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { siteConfig } from "../../config/site";
 import { HiSparkles, HiHeart } from "react-icons/hi";
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import icon from '../../../public/images/logo/icon.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,7 +30,6 @@ const Footer = () => {
     ],
   };
 
-
   return (
     <footer className="border-t border-border bg-surface/50 backdrop-blur-sm">
       {/* Gradient Divider */}
@@ -44,15 +45,17 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary via-secondary to-accent">
-                <HiSparkles className="h-5 w-5 text-white" />
-              </div>
-              <h3 className="font-bold text-text-primary">{siteConfig.name}</h3>
+              <Image 
+                src={icon} 
+                alt="TextaKit Icon" 
+                width={158} 
+                height={32}
+                className="rounded-lg"
+              />
             </div>
             <p className="text-sm text-text-secondary mb-4">
               Free professional text editing tools for everyone. No registration required.
             </p>
-          
           </motion.div>
 
           {/* Popular Tools */}
